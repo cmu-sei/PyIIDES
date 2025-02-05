@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Components &mdash; pyiides 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cia-vocab" href="vocab/cia-vocab.html" />
+    <link rel="prev" title="PYIIDES package" href="pyiides.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pyiides
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyiides.html">PYIIDES package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Vocabulary:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Core Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#incident">Incident</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/cia-vocab.html">cia-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/incident-status-vocab.html">incident-status-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/incident-type-vocab.html">incident-type-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/incident-subtype-vocab.html">incident-subtype-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/outcome-type-vocab.html">outcome-type-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#insider">Insider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/incident-role-vocab.html">incident-role-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/motive-vocab.html">motive-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/psych-issues-vocab.html">psych-issues-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/predisposition-type-vocab.html">predisposition-type-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/predisposition-subtype-vocab.html">predisposition-subtype-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/concerning-behavior-vocab.html">concerning-behavior-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/cb-subtype-vocab.html">cb-subtype-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#organization">Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/industry-sector-vocab.html">industry-sector-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/industry-subsector-vocab.html">industry-subsector-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/org-role-vocab.html">org-role-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#job">Job</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/job-function-vocab.html">job-function-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/occupation-vocab.html">occupation-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/access-auth-vocab.html">access-auth-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/employment-type-vocab.html">employment-type-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#detection">Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/detection-team-vocab.html">detection-team-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/detection-method-vocab.html">detection-method-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/detection-log-vocab.html">detection-log-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#response">Response</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/technical-control-vocab.html">technical-control-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/behavioral-control-vocab.html">behavioral-control-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/investigation-vocab.html">investigation-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/investigator-vocab.html">investigator-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ttp">TTP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/tactic-vocab.html">tactic-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/technique-vocab.html">technique-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/attack-location-vocab.html">attack-location-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/attack-hours-vocab.html">attack-hours-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/device-vocab.html">device-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/channel-vocab.html">channel-vocab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#subcomponents">Subcomponents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#person">Person</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/suffix-vocab.html">suffix-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/residency-vocab.html">residency-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/education-vocab.html">education-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/gender-vocab.html">gender-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/marital-status-vocab.html">marital-status-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#charge">Charge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/charge-plea-vocab.html">charge-plea-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/charge-disposition-vocab.html">charge-disposition-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#court-case">Court Case</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/country-vocab.html">country-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/state-vocab-us.html">state-vocab-us</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/court-type-vocab.html">court-type-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/case-type-vocab.html">case-type-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sentence">Sentence</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/sentence-type-vocab.html">sentence-type-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/sentence-metric-vocab.html">sentence-metric-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#target">Target</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/target-asset-vocab.html">target-asset-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/target-category-vocab.html">target-category-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/target-subcategory-vocab.html">target-subcategory-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/target-format-vocab.html">target-format-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/target-owner-vocab.html">target-owner-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/target-sensitivity-vocab.html">target-sensitivity-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#source">Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/source-type-vocab.html">source-type-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/source-file-type-vocab.html">source-file-type-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#stressor">Stressor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/stressor-category-vocab.html">stressor-category-vocab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vocab/stressor-subcategory-vocab.html">stressor-subcategory-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sponsor">Sponsor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/sponsor-type-vocab.html">sponsor-type-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#collusion">Collusion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/recruitment-vocab.html">recruitment-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#impact">Impact</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/impact-metric-vocab.html">impact-metric-vocab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#organization-relationship">Organization Relationship</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vocab/org-relationship-vocab.html">org-relationship-vocab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#other">Other</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vocab/country-vocab.html">country-vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vocab/insider-relationship-vocab.html">insider-relationship-vocab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vocab/state-vocab-us.html">state-vocab-us</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">License:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyiides</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Core Components</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/vocab.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="core-components">
+<h1>Core Components<a class="headerlink" href="#core-components" title="Link to this heading"></a></h1>
+<section id="incident">
+<h2>Incident<a class="headerlink" href="#incident" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/cia-vocab.html">cia-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/incident-status-vocab.html">incident-status-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/incident-type-vocab.html">incident-type-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/incident-subtype-vocab.html">incident-subtype-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/outcome-type-vocab.html">outcome-type-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="insider">
+<h2>Insider<a class="headerlink" href="#insider" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/incident-role-vocab.html">incident-role-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/motive-vocab.html">motive-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/psych-issues-vocab.html">psych-issues-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/predisposition-type-vocab.html">predisposition-type-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/predisposition-subtype-vocab.html">predisposition-subtype-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/concerning-behavior-vocab.html">concerning-behavior-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/cb-subtype-vocab.html">cb-subtype-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="organization">
+<h2>Organization<a class="headerlink" href="#organization" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/industry-sector-vocab.html">industry-sector-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/industry-subsector-vocab.html">industry-subsector-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/org-role-vocab.html">org-role-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="job">
+<h2>Job<a class="headerlink" href="#job" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/job-function-vocab.html">job-function-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/occupation-vocab.html">occupation-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/access-auth-vocab.html">access-auth-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/employment-type-vocab.html">employment-type-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="detection">
+<h2>Detection<a class="headerlink" href="#detection" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/detection-team-vocab.html">detection-team-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/detection-method-vocab.html">detection-method-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/detection-log-vocab.html">detection-log-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="response">
+<h2>Response<a class="headerlink" href="#response" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/technical-control-vocab.html">technical-control-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/behavioral-control-vocab.html">behavioral-control-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/investigation-vocab.html">investigation-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/investigator-vocab.html">investigator-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="ttp">
+<h2>TTP<a class="headerlink" href="#ttp" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/tactic-vocab.html">tactic-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/technique-vocab.html">technique-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/attack-location-vocab.html">attack-location-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/attack-hours-vocab.html">attack-hours-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/device-vocab.html">device-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/channel-vocab.html">channel-vocab</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="subcomponents">
+<h1>Subcomponents<a class="headerlink" href="#subcomponents" title="Link to this heading"></a></h1>
+<section id="person">
+<h2>Person<a class="headerlink" href="#person" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/suffix-vocab.html">suffix-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/residency-vocab.html">residency-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/education-vocab.html">education-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/gender-vocab.html">gender-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/marital-status-vocab.html">marital-status-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="charge">
+<h2>Charge<a class="headerlink" href="#charge" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/charge-plea-vocab.html">charge-plea-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/charge-disposition-vocab.html">charge-disposition-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="court-case">
+<h2>Court Case<a class="headerlink" href="#court-case" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/country-vocab.html">country-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/state-vocab-us.html">state-vocab-us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/court-type-vocab.html">court-type-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/case-type-vocab.html">case-type-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="sentence">
+<h2>Sentence<a class="headerlink" href="#sentence" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/sentence-type-vocab.html">sentence-type-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/sentence-metric-vocab.html">sentence-metric-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="target">
+<h2>Target<a class="headerlink" href="#target" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/target-asset-vocab.html">target-asset-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/target-category-vocab.html">target-category-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/target-subcategory-vocab.html">target-subcategory-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/target-format-vocab.html">target-format-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/target-owner-vocab.html">target-owner-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/target-sensitivity-vocab.html">target-sensitivity-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="source">
+<h2>Source<a class="headerlink" href="#source" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/source-type-vocab.html">source-type-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/source-file-type-vocab.html">source-file-type-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="stressor">
+<h2>Stressor<a class="headerlink" href="#stressor" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/stressor-category-vocab.html">stressor-category-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/stressor-subcategory-vocab.html">stressor-subcategory-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="sponsor">
+<h2>Sponsor<a class="headerlink" href="#sponsor" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/sponsor-type-vocab.html">sponsor-type-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="collusion">
+<h2>Collusion<a class="headerlink" href="#collusion" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/recruitment-vocab.html">recruitment-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="impact">
+<h2>Impact<a class="headerlink" href="#impact" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/impact-metric-vocab.html">impact-metric-vocab</a></li>
+</ul>
+</div>
+</section>
+<section id="organization-relationship">
+<h2>Organization Relationship<a class="headerlink" href="#organization-relationship" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/org-relationship-vocab.html">org-relationship-vocab</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="other">
+<h1>Other<a class="headerlink" href="#other" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vocab/country-vocab.html">country-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/insider-relationship-vocab.html">insider-relationship-vocab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocab/state-vocab-us.html">state-vocab-us</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyiides.html" class="btn btn-neutral float-left" title="PYIIDES package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vocab/cia-vocab.html" class="btn btn-neutral float-right" title="cia-vocab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
