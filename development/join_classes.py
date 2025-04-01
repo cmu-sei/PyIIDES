@@ -106,8 +106,11 @@ def merge_python_files(src_dir, output_dir, output_file, priority_file):
 
 
 if __name__ == "__main__":
-    src_directory = 'development/base'  # Source directory containing class Python files
-    output_directory = 'pyiides'  # Output directory for the merged file
+
+    pyiides_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
+    src_directory = os.path.join(pyiides_dir, 'development', 'base')  # Source directory containing class Python files
+    output_directory = os.path.join(pyiides_dir, 'pyiides')  # Output directory for the merged file
     output_filename = 'pyiides.py'  # Output file name
     priority_filename = 'person.py'  # Priority file containing the Person class
 

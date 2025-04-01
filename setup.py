@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.1.1' 
+VERSION = '0.2.0' 
 DESCRIPTION = 'PyIIDES'
 LONG_DESCRIPTION = 'Python API for the Insider Incident Data Exchange Standard'
 
