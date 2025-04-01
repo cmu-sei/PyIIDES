@@ -249,15 +249,27 @@ def check_tuple_list(L, vocab0, vocab1):
     
 def check_iides(objects):
     """
-    Checks if all objects in the given list are instances of a class with an 'id' attribute, confirming to IDES.
+    Recursively checks if all objects in the given structure (which may be a list,
+    a dictionary, or a single object) have an 'id' attribute, confirming to IIDES.
 
     Args:
-        objects (list): List of objects to check.
+        objects (list, dict, or object): The structure or object to check.
 
-    Returns:
-        bool: True if all objects have an 'id' attribute, False otherwise.
+    Raises:
+        TypeError: If any object is found that does not have an 'id' attribute.
     """
-    for obj in objects:
-        if not hasattr(obj, 'id'):
+    if objects is None:
+        return
+
+    if isinstance(objects, dict):
+        # Recursively check each value in the dictionary.
+        for key, value in objects.items():
+            check_iides(value)
+    elif isinstance(objects, list):
+        # Recursively check each item in the list.
+        for obj in objects:
+            check_iides(obj)
+    else:
+        # When it's not a list or dict, assume it's an individual object.
+        if not hasattr(objects, 'id'):
             raise TypeError("One or more objects failed to parse: Missing ID")
-    return
