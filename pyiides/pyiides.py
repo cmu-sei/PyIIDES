@@ -2820,7 +2820,7 @@ class Job:
 
 class Insider(Person):
     """
-    Initialize a Job instance.
+    Initialize an Insider instance.
 
     Args:
         id (str): Unique identifier for the Job. Defaults to a new UUIDv4 string if not provided.
@@ -5470,11 +5470,12 @@ class Source:
         date (datetime) : The date the source was created or last modified.
         public (bool) : Indicates if the source is public.
         document (string) : The document or URL associated with the source.
+        comment (string): Clarifying comments about the source.
 
     Raises:
         TypeError: If any provided attribute is of the incorrect type.
         ValueError: If any provided attribute is of the incorrect vocabulary.
-    
+
     Example:
         >>> from datetime import datetime
         >>> source = Source(
@@ -5484,14 +5485,15 @@ class Source:
         ...     file_type="pdf",
         ...     date=datetime(2023, 1, 1),
         ...     public=True,
-        ...     document="http://example.com"
+        ...     document="http://example.com",
+        ...     comment="Sample comments about the sample source."
         ... )
         >>> print(source.title)
         Sample Title
         >>> print(source.date)
         2023-01-01 00:00:00
     """
-    def __init__(self, title, id=None, source_type=None, file_type=None, date=None, public=None, document=None):
+    def __init__(self, title, id=None, source_type=None, file_type=None, date=None, public=None, document=None, comment=None):
         if id is None:
             id = str(uuid.uuid4())
         check_uuid(id)
@@ -5513,11 +5515,14 @@ class Source:
         self._public = public
 
         check_type(document, str)
-        self._document = document 
+        self._document = document
 
-        # relationships 
-        self._incident = None 
-    
+        check_type(comment, str)
+        self._comment = comment
+
+        # relationships
+        self._incident = None
+
     def __repr__(self):
         return (f"Source(id={self.id}, "
                 f"title={self.title}, "
@@ -5525,7 +5530,8 @@ class Source:
                 f"file_type={self.file_type}, "
                 f"date={self.date}, "
                 f"public={self.public}, "
-                f"document={self.document})")
+                f"document={self.document}), "
+                f"comment={self.comment}")
 
     def to_dict(self):
         class_dict_copy = self.__dict__.copy()
@@ -5543,25 +5549,25 @@ class Source:
 
     @property
     def id(self):
-        return self._id  
+        return self._id
 
     @id.setter
     def id(self, value):
         check_uuid(value)
         self._id = value
-    
+
     @property
     def title(self):
-        return self._title 
-    
+        return self._title
+
     @title.setter
     def title(self, value):
         check_type(value, str)
-        self._title = value 
+        self._title = value
 
     @title.deleter
     def title(self):
-        self._title = None 
+        self._title = None
 
     @property
     def source_type(self):
@@ -5627,20 +5633,33 @@ class Source:
     @document.deleter
     def document(self):
         self._document = None
-    
+
+    @property
+    def comment(self):
+        return self._comment
+
+    @comment.setter
+    def comment(self, value):
+        check_type(value, str)
+        self._comment = value
+
+    @comment.deleter
+    def comment(self):
+        self._comment = None
+
     # - - - - - - - - RELATIONSHIPS - - - - - - - - 
     @property
     def incident(self):
         return self._incident
-    
+
     @incident.setter
     def incident(self, value):
-        
+
         check_type(value, Incident, allow_none=False)
-        
-        # set the incident: 
-        # if there is already an incident set, we want to 
-        # remove this note instance from that incident 
+
+        # set the incident:
+        # if there is already an incident set, we want to
+        # remove this note instance from that incident
         # before setting the new one
         if self._incident != None:
             self._incident.sources.remove(self)
@@ -5652,7 +5671,7 @@ class Source:
             value.sources = [self]
         elif self not in value.sources:
             value.sources.append(self)
-    
+
     @incident.deleter
     def incident(self):
         if self._incident != None:

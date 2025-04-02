@@ -121,6 +121,14 @@ Stressor
    :undoc-members:
    :show-inheritance:
 
+Source
+--------
+
+.. autoclass:: pyiides.pyiides.Source
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Target
 ------
 
